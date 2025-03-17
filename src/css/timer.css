@@ -15,8 +15,21 @@
     color: #2e2f42;
 }
 
+#datetime-picker:enabled:hover {
+    border: 1px solid #000;
+}
+
+#datetime-picker:active:enabled,
+#datetime-picker:focus:enabled {
+    border: none;
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: #4e75ff;
+}
+
 #datetime-picker:disabled {
     border: 1px solid #808080;
+    background-color: #fafafa;
     border-radius: 4px;
     width: 272px;
     height: 40px;
@@ -68,6 +81,10 @@
     letter-spacing: 0.04em;
     color: #ffff;
     cursor: pointer;
+}
+
+#start-btn:enabled:hover {
+    background-color: #6c8cff;
 }
 
 .timer {
