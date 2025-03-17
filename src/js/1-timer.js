@@ -18,15 +18,20 @@ const options = {
     const currentDate = new Date();
 
     if (userSelectedDate && userSelectedDate <= currentDate) {
-      iziToast.error({
+      iziToast.show({
         title: 'Error',
+        titleColor: '#FFFFFF',
+        iconColor: '#fffff',
+        iconUrl: '../img/svg/wn-ic.svg',
         message: 'Please choose a date in the future',
-        position: 'topRight',
         messageColor: '#FFFFFF',
+        backgroundColor: '#ef4040',
+        position: 'topRight',
+        progressBar: false,
       });
-      startBtn.setAttribute('data-start', 'false');
-    } else if (userSelectedDate) {
-      startBtn.setAttribute('data-start', 'true');
+      startBtn.disabled = true;
+    } else {
+      startBtn.disabled = false;
     }
   },
 };
@@ -62,12 +67,13 @@ const secondsEl = document.querySelector('[data-seconds]');
 
 const fp = flatpickr(inputField, options); // flatpickr
 let userSelectedDate;
+startBtn.disabled = true;
 
 startBtn.addEventListener('click', () => {
-  const targetTime = new Date(userSelectedDate).getTime();
+  startBtn.disabled = true;
+  inputField.disabled = true;
 
-  inputField.setAttribute('disabled', true);
-  startBtn.setAttribute('disabled', true);
+  const targetTime = new Date(userSelectedDate).getTime();
 
   const intervalId = setInterval(() => {
     const currentTime = new Date().getTime();
@@ -79,8 +85,8 @@ startBtn.addEventListener('click', () => {
       hoursEl.textContent = '00';
       minutesEl.textContent = '00';
       secondsEl.textContent = '00';
+      inputField.disabled = false;
     } else {
-      inputField.removeAttribute('disabled');
       daysEl.textContent = addLeadingZero(days);
       hoursEl.textContent = addLeadingZero(hours);
       minutesEl.textContent = addLeadingZero(minutes);
