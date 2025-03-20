@@ -27,7 +27,9 @@ const options = {
         messageColor: '#FFFFFF',
         backgroundColor: '#ef4040',
         position: 'topRight',
-        progressBar: false,
+        progressBar: true,
+        progressBarColor: ' #B51B1B',
+        closeOnClick: true,
       });
       startBtn.disabled = true;
     } else {

@@ -1,3 +1,17 @@
+/*
+* START Toast style change
+*/
+.iziToast>.iziToast-body .iziToast-message,
+.iziToast>.iziToast-body .iziToast-title {
+    font-family: "Montserrat",
+        sans-serif;
+}
+
+/*
+* END - Toast style change
+*/
+
+
 #datetime-picker:enabled {
     border: 1px solid #808080;
     border-radius: 4px;
